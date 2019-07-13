@@ -6,7 +6,7 @@ from tkinter import messagebox
 
 top = Tk()
 
-dim = 400
+dim = 1200
 minSize = 4
 factor = dim*0.07
 def drawGasket(x, y, dim, collerR, collerG, collerB):

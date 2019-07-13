@@ -12,7 +12,7 @@ minSize = 4
 def drawGasket(x, y, dim, collerR, collerG, collerB):
     if dim <= minSize:
 # Het "ei" wordt gelegd met als resultaat het"Sierpinski driehoek"
-        factor = din*0.07
+        factor = dim*0.07
         fillcolor = '#' + str(hex(int(collerR/factor)))[2:3] + str(hex(int(collerG/factor)))[2:3] + str(hex(int(collerB/factor)))[2:3]
         print(fillcolor)
         points = [x+dim/2, y, x, dim+y, dim+x, dim+y]

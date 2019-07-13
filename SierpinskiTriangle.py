@@ -1,19 +1,41 @@
-# from numpy import *
-import numpy as np
-# from pylab import *
-import pylab as py
-
-py.figure()
-
-pi = np.pi
-
-a = np.array([0, pi/4, pi/2, 3*pi/4, pi, 5*pi/4, 3*pi/2, 7*pi/4, pi])
-b = np.array([1, 3, 3, 5])
-
-py.figure()
-py.plot(np.sin(a), 'r-^',
-        np.sin(2*a), "b-o", label = 'BOE')
-py.legend()
 
 
-py.show()
+from tkinter import *
+
+from tkinter import messagebox
+
+top = Tk()
+
+dim = 1500
+minSize = 4
+
+def drawGasket(x, y, dim, collerR, collerB, collerY):
+    if dim <= minSize:
+        print("x = ", x)
+#        stroke = collerR, collerB, collerY
+        points = [x+dim/2, y, x, dim+y, dim+x, dim+y]
+        poly = C.create_polygon(points, outline='#ff1', fill='#fff', width=5)
+    else:
+        newDim = dim / 2
+        drawGasket(x + dim/4, y, newDim, collerR, collerB + newDim, collerY + newDim/100)
+        drawGasket(x, y + newDim, newDim, collerR + newDim/100, collerB, collerY + newDim)
+        drawGasket(x + newDim, y + newDim, newDim, collerR + newDim, collerB + newDim/100, collerY)
+
+
+C = Canvas(top, bg ="#aaaaaa", height = dim, width = dim)
+
+def draw():
+        drawGasket(0, 0, dim, 20, 20, 20)
+
+
+#points = [0, 0, 200, 0, 100, 100]
+#poly =C.create_polygon(points, outline='#ff1',
+#    fill='#131', width=5)
+
+
+
+C.pack()
+top.mainloop()
+
+
+

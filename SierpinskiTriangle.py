@@ -6,15 +6,15 @@ from tkinter import messagebox
 
 top = Tk()
 
-dim = 1200
+dim = 400
 minSize = 4
-
+factor = dim*0.07
 def drawGasket(x, y, dim, collerR, collerG, collerB):
     if dim <= minSize:
 # Het "ei" wordt gelegd met als resultaat het"Sierpinski driehoek"
-        factor = dim*0.07
+
         fillcolor = '#' + str(hex(int(collerR/factor)))[2:3] + str(hex(int(collerG/factor)))[2:3] + str(hex(int(collerB/factor)))[2:3]
-        print(fillcolor)
+        print(dim, factor)
         points = [x+dim/2, y, x, dim+y, dim+x, dim+y]
         poly = C.create_polygon(points, outline=fillcolor, fill=fillcolor, width=0)
 

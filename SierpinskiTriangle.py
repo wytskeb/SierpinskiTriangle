@@ -11,7 +11,6 @@ minSize = 4
 
 def drawGasket(x, y, dim, collerR, collerB, collerY):
     if dim <= minSize:
-        print("x = ", x)
 #        stroke = collerR, collerB, collerY
         points = [x+dim/2, y, x, dim+y, dim+x, dim+y]
         poly = C.create_polygon(points, outline='#ff1', fill='#fff', width=5)
@@ -33,9 +32,9 @@ def draw():
 #    fill='#131', width=5)
 
 
+draw()
 
 C.pack()
 top.mainloop()
-
 
 

@@ -41,7 +41,6 @@ C = Canvas(top, bg ="#aaaaaa", height = dim, width = dim)
 for i in range(0, 10):
     minSize = minSize/2
     # start
-    #C.configure(activebackground = "#33B5E5")
     C.delete("all")
     draw()
     C.update()

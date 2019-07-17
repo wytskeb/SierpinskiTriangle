@@ -1,13 +1,16 @@
 
-
+# grafische dingentjes
 from tkinter import *
+# wacht tijd invoeren
+from time import *
+
 
 from tkinter import messagebox
 
 top = Tk()
 
 dim = 1200
-minSize = 4
+minSize = 1200
 factor = dim*0.07
 def drawGasket(x, y, dim, collerR, collerG, collerB):
     if dim <= minSize:
@@ -32,13 +35,18 @@ def draw():
 # Roept de recursieve functie voor het eerst aan en is daarmee de start van de rekursie
     drawGasket(0, 0, dim, 20, 20, 20)
 
+
 # produceert het scherm waarop het resutaat getoond word
 C = Canvas(top, bg ="#aaaaaa", height = dim, width = dim)
-
-# start
-draw()
-
-C.pack()
+for i in range(0, 10):
+    minSize = minSize/2
+    # start
+    #C.configure(activebackground = "#33B5E5")
+    C.delete("all")
+    draw()
+    C.update()
+    sleep(0.5)
+    C.pack()
 top.mainloop()
 
 
